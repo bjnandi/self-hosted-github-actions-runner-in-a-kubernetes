@@ -1,4 +1,4 @@
-# self-hosted-github-actions-runner-in-a-kubernetes
+# Self Hosted GitHub Actions Runner in Kubernetes
 
 Step 1: Project Structure Setup
 - Clone the repository:
@@ -6,8 +6,10 @@ Step 1: Project Structure Setup
 git clone https://github.com/bjnandi/self-hosted-github-actions-runner-in-kubernetes
 ```
 - Setup githubs default account:
+```
 git config user.email "<your-email>"
 git config user.name "<Your Name>"
+```
 
 Step 2: Creating the Custom runner image
 - Create Directory for github-runner:
