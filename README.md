@@ -3,7 +3,7 @@ Deploy a self-hosted GitHub Actions runner in a Kubernetes cluster to execute CI
 
 Step 1: Project Structure Setup
 - Create a new repository:
-Go to GitHub and create a new repository ( e.g., github-runner-k8s ) with a README.md file
+Go to GitHub and create a new repository ( e.g., github-runner-k8s ) with a README.md file.
 - Clone the repository:
 ```
 git clone https://github.com/bjnandi/self-hosted-github-actions-runner-in-kubernetes
