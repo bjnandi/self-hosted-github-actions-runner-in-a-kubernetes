@@ -1,8 +1,24 @@
 # self-hosted-github-actions-runner-in-a-kubernetes
 
 Step 1: Project Structure Setup
+- Clone the repository:
+```
+git clone https://github.com/bjnandi/self-hosted-github-actions-runner-in-kubernetes
+```
+- Setup githubs default account:
+git config user.email "<your-email>"
+git config user.name "<Your Name>"
+
 Step 2: Creating the Custom runner image
+- Create Directory for github-runner:
+```
+cd github-runner-k8s
+```
 Step 3: Entrypoint Script
+- Make the script executable:
+```
+chmod +x entrypoint.sh
+```
 Step 4: Build the docker image
 - Docker Build
 ```
@@ -11,9 +27,8 @@ docker build \
   --build-arg GITHUB_PERSONAL_TOKEN="<your-personal-access-token" \
   --build-arg GITHUB_OWNER="<your-github-username>" \
   --build-arg GITHUB_REPOSITORY="<your-github-repository-name" \
-  -t <image-name> .
+  -t runner-image .
 ```
-
 - Docker Login
 ```
 docker login
@@ -49,7 +64,6 @@ kubectl apply -f github-runner.yaml -n host-runner
 kubectl get pods -n host-runner
 ```
 Step 8: Testing the Runner with Nginx Deployment
-
 - Add GitHub Repository Secrets
 Ensure the following secrets are added to your GitHub repository for secure handling:
 ```
@@ -72,6 +86,13 @@ kubectl get nodes -o wide
 After creating the required files and configuration, commit and push all files to the main branch of your repository.
 
 Step 9: Verify the Workflow
+- Create a directory structure for the Nginx deployment files in your repository root directory.
+```
+cd ../nginx-deployment
+```
+- Commit and Push to Repository
+After creating the required files and configuration, commit and push all files to the main branch of your repository.
+
 - Access the Application
 In Poridhi's Kubernetes cluster verify the deploymets and services
 ```
@@ -91,9 +112,9 @@ To get the eth0 ip of the master node, you can use the following command:
 ```
 ifconfig
 ```
-
+- Access the Application:
 ```
-curl ip-add:30080
+curl ip-address:30080
 ```
 
 Congratulations!! You have successfully set up a self-hosted runner in Kubernetes and deployed an Nginx application using GitHub Actions. You have learned how to automate the Docker build, Kubernetes deployment, and service creation using GitHub workflows. By leveraging self-hosted runners, you can optimize resource usage and streamline CI/CD processes in Kubernetes environments.
