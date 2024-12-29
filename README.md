@@ -31,6 +31,7 @@ docker build \
   --build-arg GITHUB_REPOSITORY="<your-github-repository-name" \
   -t runner-image .
 ```
+Step 5: Push the Image to DockerHub
 - Docker Login
 ```
 docker login
@@ -43,7 +44,6 @@ docker tag runner-image:latest bjnandi/self-hosted-github-actions-runner-in-a-ku
 ```
 docker push bjnandi/self-hosted-github-actions-runner-in-a-kubernetes:latest
 ```
-Step 5: Push the Image to DockerHub
 Step 6: Configure the self hosted runner in Kubernetes
 - Create a Kubernetes namespace:
 ```
