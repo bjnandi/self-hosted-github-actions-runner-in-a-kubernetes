@@ -1,6 +1,9 @@
 # Self Hosted GitHub Actions Runner in Kubernetes
+Deploy a self-hosted GitHub Actions runner in a Kubernetes cluster to execute CI/CD workflows. The lab covers creating a custom Docker image for the runner, configuring Kubernetes deployments, and setting up GitHub Actions workflows for automated application deployment. By the end, you will deploy and verify an Nginx application in Kubernetes, leveraging the scalability.
 
 Step 1: Project Structure Setup
+- Create a new repository:
+Go to GitHub and create a new repository ( e.g., github-runner-k8s ) with a README.md file
 - Clone the repository:
 ```
 git clone https://github.com/bjnandi/self-hosted-github-actions-runner-in-kubernetes
@@ -84,8 +87,6 @@ cat /etc/rancher/k3s/k3s.yaml
 ```
 kubectl get nodes -o wide
 ```
-- Commit and Push to Repository
-After creating the required files and configuration, commit and push all files to the main branch of your repository.
 
 Step 9: Verify the Workflow
 - Create a directory structure for the Nginx deployment files in your repository root directory.
@@ -94,7 +95,11 @@ cd ../nginx-deployment
 ```
 - Commit and Push to Repository
 After creating the required files and configuration, commit and push all files to the main branch of your repository.
-
+```
+git add --all
+git commit -m "cicd-k8s"
+git push
+```
 - Access the Application
 In Poridhi's Kubernetes cluster verify the deploymets and services
 ```
@@ -120,3 +125,6 @@ curl ip-address:30080
 ```
 
 Congratulations!! You have successfully set up a self-hosted runner in Kubernetes and deployed an Nginx application using GitHub Actions. You have learned how to automate the Docker build, Kubernetes deployment, and service creation using GitHub workflows. By leveraging self-hosted runners, you can optimize resource usage and streamline CI/CD processes in Kubernetes environments.
+
+For more Details:
+https://poridhi.io/lab-group-modules/676a65139561ceed0084a234/676a80c3b4d4aa86d481e56f
